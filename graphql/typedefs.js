@@ -4,11 +4,11 @@ const typeDefs = gql`
 
     type Comment {
         id: ID!
-        post: Post!
-        user: User!
-        # postId: ID!
-        # userId: ID!
         body: String!
+        postId: ID!
+        post: Post!
+        userId: ID!
+        user: User!
     }
 
     type Like {
@@ -21,10 +21,11 @@ const typeDefs = gql`
         id: ID!
         body: String!
         createdAt: String!
+        userId: ID!
         user: User!
-        # likes: [Like]!
+        likes: [Like]!
         likesCount: Int!
-        # comments: [Comment]!
+        comments: [Comment]!
         commentsCount: Int!
     }
 
