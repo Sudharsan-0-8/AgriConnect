@@ -9,5 +9,6 @@ module.exports = {
     Mutation: {
         ...register.Mutation,
         ...post.Mutation,
-    }
+    },
+    Post: post.Post,
 };
