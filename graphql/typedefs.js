@@ -23,9 +23,9 @@ const typeDefs = gql`
         createdAt: String!
         userId: ID!
         user: User!
-        # likes: [Like]!
+        likes: [Like]!
         likesCount: Int!
-        # comments: [Comment]!
+        comments: [Comment]!
         commentsCount: Int!
     }
 
