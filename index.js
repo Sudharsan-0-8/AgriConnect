@@ -1,7 +1,7 @@
 const { ApolloServer } = require('apollo-server');
 const { mongoose } = require('mongoose');
 
-const { MONGO_CONNECTION_URL } = require('./mongocfg.js');
+const { MONGO_CONNECTION_URL } = require('./keys.js');
 const typeDefs = require('./graphql/typedefs.js');
 const resolvers = require('./graphql/resolvers');
 
@@ -9,7 +9,8 @@ const PORT = 3000;
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  context: function(param){ return { req: param.req } }
 })
 
 mongoose.connect(MONGO_CONNECTION_URL, { useNewUrlParser: true })

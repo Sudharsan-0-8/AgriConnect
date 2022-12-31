@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const User = require('../../models/User.js');
-const { SECRET_KEY } = require('../../mongocfg.js');
+const { SECRET_KEY } = require('../../keys.js');
 
 module.exports = {
     Mutation: {
@@ -61,7 +61,8 @@ module.exports = {
                 email: existUser[0].email,
             }, 
             SECRET_KEY,
-            { expiresIn: '1h' });
+            { expiresIn: '1h' }
+            );
 
             return {
                 id: existUser[0]._id,
