@@ -52,6 +52,7 @@ const typeDefs = gql`
         currUser: User
         test: String!
         allPosts: [Post]!
+        post(id: ID!): Post!
     }
 
     type Mutation {
@@ -64,7 +65,7 @@ const typeDefs = gql`
         addLike(postId: ID!): Like!
         removeLike(postId: ID!): String!
     }
-    
+     
 `;
 
 module.exports = typeDefs; 

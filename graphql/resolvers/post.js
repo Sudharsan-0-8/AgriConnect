@@ -30,6 +30,14 @@ module.exports = {
     }
   },
   Query: {
+    post: async function(parent, { id }) {
+      try {
+        const post = Post.findOne({ _id: id });
+        return post;
+      }catch(err) {
+        throw new Error(err);
+      }
+    },
     allPosts: async function(parent, args) {
       try {
         const posts = await Post.find().sort({ createdAt: -1 });
