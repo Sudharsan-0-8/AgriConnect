@@ -5,6 +5,7 @@ module.exports = {
     Query: {
         allUsers: async function() {
             const users = await User.find();
+            console.log(users);
             return users;
         },
         currUser: async function(_, _, context) {
