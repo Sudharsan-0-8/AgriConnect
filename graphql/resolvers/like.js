@@ -54,13 +54,16 @@ module.exports = {
                 throw new UserInputError('like removed already');
             }
 
-            await like.remove();
+            const res = await like.remove();
 
             await Post.updateOne({ _id: postId }, {
                 $inc: { likesCount: -1 }
             });
 
-            return 'like removed';
+            return {
+                id: res._id,
+                ...res._doc
+            };
         }
     }
 }

@@ -31,7 +31,9 @@ module.exports = {
   },
   Query: {
     post: async function(parent, { id }) {
+      console.log('hiii'+ id)
       try {
+        
         const post = Post.findOne({ _id: id });
         return post;
       }catch(err) {
@@ -107,8 +109,12 @@ module.exports = {
         throw new AuthenticationError('this user not allowed delete this post');
       }
       
-      await post.delete();
-      return 'post deleted successfully';
+      const res = await post.remove();
+
+      return {
+        id: res._id,
+        ...res._doc
+      };
     }
   }
 }

@@ -52,7 +52,7 @@ const typeDefs = gql`
         currUser: User
         test: String!
         allPosts: [Post]!
-        post(id: ID!): Post!
+        post(id: ID!): Post
     }
 
     type Mutation {
@@ -60,10 +60,10 @@ const typeDefs = gql`
         login(username: String!, password: String!): User!
         addPost(body: String!): Post!
         editPost(postId: ID!, body: String!): Post!
-        deletePost(postId: ID!): String!
+        deletePost(postId: ID!): Post   
         addComment(postId: ID!, body: String!): Comment!
         addLike(postId: ID!): Like!
-        removeLike(postId: ID!): String!
+        removeLike(postId: ID!): Like!
     }
      
 `;
